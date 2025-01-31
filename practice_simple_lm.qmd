@@ -66,16 +66,15 @@ The `ISLR2` library contains the `Boston` data set, which records `medv` (median
 You can just call upon the data (it's already in the package). I'll get you started, but show me below how you'd explore the data even further by adding code in the below code chunk.
 
 ```{r}
-Boston <- head(Boston)
-
-# Added in the 'Boston <-' to assign the data set so we can access it from the environment as we please
+head(Boston)
+summary(Boston)
 
 ```
 
 We learned in class that we can apply a simple linear regression using `lm`. Here is the basic format:
 
 ```{r}
-model <- lm(y ~ x, data=df)
+# model <- lm(y ~ x, data=df)
 ```
 
 ### Question 4
@@ -83,7 +82,8 @@ model <- lm(y ~ x, data=df)
 Use the above basic format to create a linear regression model to predict the **median home value** (medv) based on the **percentage of lower status population** (lstat), using the data from the 'Boston' dataset. Assign it to the variable `lm.model`.
 
 ```{r}
-lm.model <- lm(lstat ~ medv, data = Boston)
+lm.model <- lm(medv ~ lstat, data = Boston)
+summary(lm.model)
 ```
 
 If you set it up right, you should be able to run your model name in the below code chunk and view the basic model output. Give it a try:
@@ -98,7 +98,7 @@ What is your model output telling you?
 
 #### Answer
 
-The model is telling me that my y intercept or b0 value is 12.5583, and my slope or b1 value is -2.448
+The model is telling me that my y intercept or b0 value is 34.55, and my slope or b1 value is -0.95, meaning that neighborhoods with more lower status households will generally have a lower median house value
 
 You can also try `summary(lm.model)`.
 
@@ -112,7 +112,7 @@ What additional information do you get from this summary of the model output?
 
 #### Answer
 
-A lot of things
+it gives you the residuals summary statistics which can help determine the distribution of the model. It also gives the coefficients, residual standard error, residual standard error, R-squared/adjusted R squared, and F statistic & P value.
 
 ## confint() and predict()
 
@@ -132,7 +132,9 @@ What do you think the above `confint()` and `predict()` information means? It's 
 
 #### Answer
 
-(write your answer here)
+my guess is that the confint() has something to do with confidence intervals based on the fact that it is giving 97.5 and 2.5% values,
+
+and the predict() is making some sort of best fit line with an upper range and lower range for the previously made "confidence" interval, as well as a "prediction" interval
 
 ## Visualizing
 
@@ -148,7 +150,14 @@ abline(lm.model)
 Can you convert the above code chunk to `ggplot`? Try below. Have fun with editing the appearance of your plot if you'd like :)
 
 ```{r}
+library(plotly)
 
+ggplot(Boston, aes(x = lstat, y = medv)) +
+  geom_point() + 
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Relationship between lstat and medv",
+       x = "Lower Status Population",
+       y = "Median Home Value") 
 ```
 
 In a future class, we'll explore some diagnostic plots and what that means for evaluating models. For now, just run the below and have a look:
@@ -174,7 +183,9 @@ What variables are you interested in exploring using a linear regression? Just p
 
 #### Answer
 
-(write your answer here)
+I will use x = rm and y = medv, so average rooms per house, and median house value.
+
+the question I will explore is how does number of rooms in a house affect house value
 
 ### Question 10
 
@@ -183,10 +194,16 @@ What variables are you interested in exploring using a linear regression? Just p
 Build and run your model, examine the model output:
 
 ```{r}
+lm.model_rooms <- lm(medv ~ rm, data = Boston)
 
+lm.model_rooms
+summary(lm.model_rooms)
 
+```
 
-
+```{r}
+plot(Boston$rm, Boston$medv)
+abline(lm.model_rooms)
 ```
 
 #### Part 2
@@ -195,8 +212,13 @@ Explain what you found in plain English. Do your best.
 
 #### Answer
 
-(write your answer here)
+based off of this linear model and graph i created, it appears that as the number of rooms in a house increases, so does the cost of the house, which if you think about logically this makes sense and should be how it is because number of rooms is a direct factor for house value.
 
 ## The end!
 
 That's it for now. Please feel free to raise questions in class or via email!
+
+```{r}
+lm_mult <- lm(medv ~ lstat + age, data = Boston)
+lm_mult
+```
