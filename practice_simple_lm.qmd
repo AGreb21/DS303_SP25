@@ -42,7 +42,13 @@ Think back to our class discussion and your previous studies in math. Tell me be
 
 #### Answer:
 
-y is the dependent variable, or the output. x is the independent variable, or the input. *b~0~* is the y intercept, so the y value when x = 0. And *b~1~* is the slope.
+y is the dependent variable, or the outcome.
+
+x is the independent variable or the predictors/input. \\
+
+*b~0~* is the y intercept, so the y value when x = 0.
+
+*b~1~* is the slope or the coefficients
 
 ## Let's try it
 
@@ -67,8 +73,12 @@ You can just call upon the data (it's already in the package). I'll get you star
 
 ```{r}
 head(Boston)
+
 summary(Boston)
 
+View(Boston)
+
+Boston <- Boston
 ```
 
 We learned in class that we can apply a simple linear regression using `lm`. Here is the basic format:
@@ -222,3 +232,20 @@ That's it for now. Please feel free to raise questions in class or via email!
 lm_mult <- lm(medv ~ lstat + age, data = Boston)
 lm_mult
 ```
+
+## Feb 3 Classwork
+
+```{r}
+lm.model_class <- lm(medv ~ tax + age , data = Boston)
+lm.model_class
+```
+
+```{r}
+plot(Boston$age , Boston$medv)
+abline(lm.model_class)
+
+plot(Boston$tax, Boston$medv)
+abline(lm.model_class)
+```
+
+I did a multiple model of comparing taxes and age to medv and graphed these relationships. the lines appears to not show much of a relationship to medv and if anything there was a very sight negative relationship for both of them but this correlation seems not very significant
