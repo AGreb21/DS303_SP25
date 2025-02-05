@@ -169,6 +169,9 @@ Continue using the Boston data set for now, but pick a couple other variables. A
 Make a scatterplot to visualize the relationship between your variables.
 
 ```{r}
+lm.age <- lm(lstat ~ age, data = Boston)
+summary(lm.age)
+
 ggplot(Boston, aes(x = age, y = lstat)) +
   geom_point() +
   geom_smooth(method = "lm", formula = y ~ x + I(x ^ 2), color = "blue")
@@ -179,5 +182,12 @@ ggplot(Boston, aes(x = age, y = lstat)) +
 See if you can apply polynomials to find a better fit. Be sure to compare your model with the simple `lm()`.
 
 ```{r}
+lm.age5 <-  lm(lstat ~ poly(age, 5), data = Boston)
+summary(lm.fit5)
+
+ggplot(Boston, aes(x = age, y = lstat)) +
+  geom_point() +
+  geom_smooth(method = "lm", formula = y ~ x + poly(x , 5), color = "blue")
+
 
 ```
