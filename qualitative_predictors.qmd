@@ -53,6 +53,8 @@ Examine the factor variables. These are qualitative in nature and are evaluated 
 
 Qualitative predictors such as `ShelveLoc` consist of different ***levels*** within that category. ***Levels*** refer to the distinct categories or values that a categorical variable can take. For example, levels of the made-up variable `Fruit` could include apple, banana, and cherry. In the case of `ShelveLoc`, the levels are bad, medium, and good. I'm glad you're reading this and not just looking at the code! Tell me your favorite fruit for an extra point.
 
+**My favorite fruit is apples, but i could never have them growing up cause my dad was allergic.**
+
 By the way, `ShelveLoc` refers to the shelving location for carseats—that is, the place on a store shelf in which the car seat is displayed.
 
 ```{r}
@@ -77,7 +79,7 @@ contrasts(carseats$ShelveLoc)
 
 Here is how to interpret that matrix.
 
--    `R` has created a `ShelveLocGood` dummy variable that takes on a value of 1 if the shelving location is **good**, and 0 otherwise.
+-   `R` has created a `ShelveLocGood` dummy variable that takes on a value of 1 if the shelving location is **good**, and 0 otherwise.
 
 -   It has also created a `ShelveLocMedium` dummy variable that equals 1 if the shelving location is **medium**, and 0 otherwise.
 
@@ -106,7 +108,7 @@ This means that the coefficients for `ShelveLocGood` and `ShelveLocMedium` show 
 
 Scatterplots are not really useful here with the categorical data (try it, you'll see what I mean). Use a boxplot or violin plot instead.
 
-Evaluate the below plots. Do they align with the model interpretation above?
+Evaluate the below plots. Do they align with the model interpretation above? Yes they do
 
 ```{r}
 ggplot(carseats, aes(x = ShelveLoc, y = Sales)) +
@@ -148,14 +150,19 @@ ggplot(data.frame(residuals = residuals), aes(sample = residuals)) +
 Below, fit a linear regression model to predict `Price` based on `ShelveLoc`. I'll leave it to you to recall the syntax and build your model.
 
 ```{r}
-lm.price <- lm()
+lm.price <- lm(Price ~ ShelveLoc, data = carseats)
 summary(lm.price)
 ```
 
 Create a boxplot or violin plot to aid in your interpretation, and write in your interpretation below.
 
 ```{r}
-# boxplot here
+ggplot(carseats, aes(x = ShelveLoc, y = Price)) +
+  geom_boxplot() +
+  stat_summary(fun = mean, geom = "point", color = "red", size = 2) # red dot shows the mean
+
+ggplot(carseats, aes(x = ShelveLoc, y = Price)) +
+  geom_violin()
 ```
 
 #### Interpretation of `lm.price`
@@ -167,7 +174,7 @@ Create a boxplot or violin plot to aid in your interpretation, and write in your
 Below, fit a linear regression model to predict `Sales` that includes ALL variables as well as a few interaction terms of your choice.
 
 ```{r}
-lm.carseats <- lm()
+lm.carseats <- lm(Sales ~ . , data = carseats)
 summary(lm.carseats)
 
 ```
