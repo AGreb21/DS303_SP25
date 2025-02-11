@@ -167,14 +167,14 @@ ggplot(carseats, aes(x = ShelveLoc, y = Price)) +
 
 #### Interpretation of `lm.price`
 
-(Write answer here)
+based on the graphs made the lm.price model shows that there is not very much difference in price based on shelve location, and that no matter the good, medium or bad shelf they are all very similar priced
 
 ### Predict Sales using all variables
 
 Below, fit a linear regression model to predict `Sales` that includes ALL variables as well as a few interaction terms of your choice.
 
 ```{r}
-lm.carseats <- lm(Sales ~ . , data = carseats)
+lm.carseats <- lm(Sales ~ . + ShelveLoc:Advertising + ShelveLoc:Price, data = carseats)
 summary(lm.carseats)
 
 ```
@@ -183,10 +183,10 @@ summary(lm.carseats)
 
 Provide a summary of the model output, including key coefficients and their significance levels. Discuss which variables are statistically significant predictors of `Sales`.
 
-(Write answer here)
+The lm.carseats model shows variables and their affects on sales. The variables with stars on the right are the ones that have significant impact on sales, those being; CompPrice, Income, Advertising, Price, ShelveLocGood, and Age
 
 #### Practical implications
 
 Discuss the practical implications of your findings. How can this model inform business decisions regarding pricing, advertising, or product placement, etc?
 
-(Write your answer here)
+this type of model can be used for companies to decide what factors they put more time money and effort into in order to increase sales by the most possible.
