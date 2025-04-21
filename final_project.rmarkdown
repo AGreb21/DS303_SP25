@@ -12,7 +12,11 @@ toc: False
 editor: visual
 ---
 
+
+
 ## Load packages
+
+
 
 ```{r, echo = FALSE, message = FALSE}
 library(tidyverse) 
@@ -22,6 +26,8 @@ library(phonR)
 library(dplyr)
 ```
 
+
+
 ## Background Info
 
 -   Data was collected ...
@@ -29,6 +35,8 @@ library(dplyr)
 -   
 
 ## Data set and key variables
+
+
 
 ```{r}
 # read in data
@@ -44,6 +52,8 @@ oles_pitching <- oles_pitching %>%
 head(oles_pitching)
 ```
 
+
+
 ## Our Question and Why
 
 The question we wanted to answer with this data set was ....
@@ -57,6 +67,8 @@ summary stats and visuals
 ## Modeling
 
 Two models compared and interpreted
+
+
 
 ```{r}
 oles_pitching$fb_strike_pct <- oles_pitching$'FB.Strikes' / oles_pitching$'FB.TOT'
@@ -91,7 +103,11 @@ summary(model_km)
 anova(model_k,model_km)
 ```
 
+
+
 ## ffdf
+
+
 
 ```{r}
 oles_pitching$predicted_k <- predict(model_k, type = "response")
@@ -119,6 +135,8 @@ ggplot(oles_pitching_vis, aes(x = StrikePct, fill = PitchType)) +
   theme_minimal()
 ```
 
+
+
 ## Explanation
 
 model explanations: We ran 3 models, 1 for each pitch type trying to predict strike percentage with the variables of total strikes, foul ball strikes, swinging strikes, and called strikes respectively for each pitch, based off of these models we found that none of these variables were significant predictors of strike percentage. the p values we found for the models were all well above .05, and the R squared values ranged from .22 to .51, meaning the models could only explain between 22 and 51% of the variance found.
@@ -128,3 +146,4 @@ for these next models we wanted to predict what factors led to more strikeouts, 
 based on these models we found that the number of 2 strike counts is a significant predictor of .00512 in the first model, and we also found that strike percentage, and first pitch strikes thrown are not significant predictors of strikeouts, even when in model 2 we added the interaction between first pitch strike and strike percentage.
 
 the results of the anova gave a p value of .3288 meaning that there is no significant increase/benefit to using the second model compared to the first, and that it would not be justified to include the added interaction between first pitch strike and strike percentage.
+
