@@ -13,7 +13,7 @@
   <meta name="author" content="Izack Takazawa &amp; Alex Greb">
   <meta name="author" content="DS303, SP25">
   <meta name="author" content="Prof.&nbsp;Amber Camp">
-  <meta name="dcterms.date" content="2025-03-24">
+  <meta name="dcterms.date" content="2025-04-21">
   <title>DS303 Final Project</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -349,54 +349,45 @@ Prof.&nbsp;Amber Camp
 </div>
 </div>
 
-  <p class="date">2025-03-24</p>
+  <p class="date">2025-04-21</p>
 </section>
 <section id="load-packages" class="slide level2">
 <h2>Load packages</h2>
 </section>
 <section id="background-info" class="slide level2">
 <h2>Background Info</h2>
-<p>Background bullets go here</p>
+<ul>
+<li><p>Data was collected …</p></li>
+<li></li>
+</ul>
+</section>
+<section id="data-set-and-key-variables" class="slide level2">
+<h2>Data set and key variables</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 68
+  Pitcher  FB.Whiff. FB.SwStr. FB.CSW. BB.Whiff. BB.SwStr.. BB.CSW.   TOT FB.TOT
+  &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+1 Beltrand     0.237    0.136    0.242     0.3       0.1      0.133   105     66
+2 Blum         0.176    0.0811   0.257     0.143     0.0303   0.242   114     74
+3 Brumley      0.281    0.122    0.378     0.333     0.101    0.290   144     74
+4 Enyeart      0.22     0.117    0.287     0.333     0.0625   0.406   127     94
+5 Ewert        0.219    0.0843   0.277     0.143     0.05     0.25    104     83
+6 Haaland      0.107    0.05     0.133     0.143     0.0476   0.190    84     60
+# ℹ 59 more variables: FB.Balls &lt;dbl&gt;, FB.Strikes &lt;dbl&gt;, FB.Fouls &lt;dbl&gt;,
+#   FB.BIP &lt;dbl&gt;, FB.CS &lt;dbl&gt;, FB.SS &lt;dbl&gt;, FB.Swings &lt;dbl&gt;, FB.CSW &lt;dbl&gt;,
+#   SL.TOT &lt;dbl&gt;, SL.Balls &lt;dbl&gt;, SL.Strikes &lt;dbl&gt;, SL.Fouls &lt;dbl&gt;,
+#   SL.BIP &lt;dbl&gt;, SL.CS &lt;dbl&gt;, SL.SS &lt;dbl&gt;, SL.Swings &lt;dbl&gt;, SL.CSW &lt;dbl&gt;,
+#   CH.TOT &lt;dbl&gt;, CH.Balls &lt;dbl&gt;, CH.Strikes &lt;dbl&gt;, CH.Fouls &lt;dbl&gt;,
+#   CH.BIP &lt;dbl&gt;, CH.CS &lt;dbl&gt;, CH.SS &lt;dbl&gt;, CH.Swings &lt;dbl&gt;, CH.CSW &lt;dbl&gt;,
+#   CB.total &lt;dbl&gt;, CB.balls &lt;dbl&gt;, CB.strikes &lt;dbl&gt;, CB.fouls &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
 </section>
 <section id="our-question-and-why" class="slide level2">
 <h2>Our Question and Why</h2>
-<p>answers</p>
-</section>
-<section id="dataset-and-key-variables" class="slide level2">
-<h2>Dataset and key variables</h2>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 19 × 71
-   ...1      ...2 `FB SwStr%` `FB CSW%` `BB Whiff%` `BB SwStr %` `BB CSW%` ...8 
-   &lt;chr&gt;    &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt; &lt;lgl&gt;
- 1 Beltrand 0.237      0.136      0.242       0.3         0.1        0.133 NA   
- 2 Blum     0.176      0.0811     0.257       0.143       0.0303     0.242 NA   
- 3 Brumley  0.281      0.122      0.378       0.333       0.101      0.290 NA   
- 4 Enyeart  0.22       0.117      0.287       0.333       0.0625     0.406 NA   
- 5 Ewert    0.219      0.0843     0.277       0.143       0.05       0.25  NA   
- 6 Haaland  0.107      0.05       0.133       0.143       0.0476     0.190 NA   
- 7 Haas     0.273      0.130      0.326       0.444       0.167      0.333 NA   
- 8 Hruska   0.175      0.0854     0.329       0.154       0.0513     0.359 NA   
- 9 Kornfeld 0.226      0.0946     0.284       0.364       0.163      0.388 NA   
-10 Lavin    0.478      0.22       0.44        0.333       0.0645     0.355 NA   
-11 Levasse… 0.5        0.101      0.304       0.4         0.0833     0.208 NA   
-12 Manning  0.206      0.0861     0.219       0.375       0.0882     0.176 NA   
-13 Mutscher 0.4        0.245      0.327       0.4         0.286      0.286 NA   
-14 Nord     0.267      0.0964     0.301       0.5         0.117      0.4   NA   
-15 Oberlan… 0.219      0.127      0.327       0.286       0.111      0.222 NA   
-16 Scheil   0.426      0.192      0.325       0.167       0.105      0.211 NA   
-17 Silton   0.071      0.0222     0.256       0.667       0.0909     0.227 NA   
-18 Steel    0.143      0.0413     0.264       0.409       0.25       0.361 NA   
-19 Takazawa 0.323      0.164      0.115       0.5         0.0690     0.241 NA   
-# ℹ 63 more variables: ...9 &lt;lgl&gt;, ...10 &lt;lgl&gt;, TOT &lt;dbl&gt;, `FB TOT` &lt;dbl&gt;,
-#   `FB Balls` &lt;dbl&gt;, `FB Strikes` &lt;dbl&gt;, `FB Fouls` &lt;dbl&gt;, `FB BIP` &lt;dbl&gt;,
-#   `FB CS` &lt;dbl&gt;, `FB SS` &lt;dbl&gt;, `FB Swings` &lt;dbl&gt;, `FB CSW` &lt;dbl&gt;,
-#   `SL TOT` &lt;dbl&gt;, `SL Balls` &lt;dbl&gt;, `SL Strikes` &lt;dbl&gt;, `SL Fouls` &lt;dbl&gt;,
-#   `SL BIP` &lt;dbl&gt;, `SL CS` &lt;dbl&gt;, `SL SS` &lt;dbl&gt;, `SL Swings` &lt;dbl&gt;,
-#   `SL CSW` &lt;dbl&gt;, `CH TOT` &lt;dbl&gt;, `CH Balls` &lt;dbl&gt;, `CH Strikes` &lt;dbl&gt;,
-#   `CH Fouls` &lt;dbl&gt;, `CH BIP` &lt;dbl&gt;, `CH CS` &lt;dbl&gt;, `CH SS` &lt;dbl&gt;, …</code></pre>
-</div>
-</div>
+<p>The question we wanted to answer with this data set was ….</p>
+<p>The purpose of this question was to create a predictive model…</p>
 </section>
 <section id="eda" class="slide level2">
 <h2>EDA</h2>
@@ -405,14 +396,135 @@ Prof.&nbsp;Amber Camp
 <section id="modeling" class="slide level2">
 <h2>Modeling</h2>
 <p>Two models compared and interpreted</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = fb_strike_pct ~ FB.Strikes + FB.Fouls + FB.SS + 
+    FB.CS, data = oles_pitching)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.099635 -0.050403 -0.005404  0.014249  0.137285 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  0.7166433  0.0715627  10.014 9.18e-08 ***
+FB.Strikes   0.0022888  0.0044880   0.510    0.618    
+FB.Fouls    -0.0080705  0.0073257  -1.102    0.289    
+FB.SS        0.0009945  0.0063731   0.156    0.878    
+FB.CS       -0.0065068  0.0068607  -0.948    0.359    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.07994 on 14 degrees of freedom
+Multiple R-squared:  0.2221,    Adjusted R-squared:  -0.0001085 
+F-statistic: 0.9995 on 4 and 14 DF,  p-value: 0.4403</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = sl_strike_pct ~ SL.Strikes + SL.Fouls + SL.SS + 
+    SL.CS, data = oles_pitching)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.189902 -0.092095 -0.003594  0.065030  0.262728 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  0.38849    0.06340   6.127 2.62e-05 ***
+SL.Strikes   0.01921    0.01322   1.453    0.168    
+SL.Fouls     0.01452    0.01699   0.855    0.407    
+SL.SS       -0.02375    0.02636  -0.901    0.383    
+SL.CS       -0.02440    0.01497  -1.630    0.125    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.1258 on 14 degrees of freedom
+Multiple R-squared:  0.4122,    Adjusted R-squared:  0.2443 
+F-statistic: 2.455 on 4 and 14 DF,  p-value: 0.09418</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = ch_strike_pct ~ CH.Strikes + CH.Fouls + CH.SS + 
+    CH.CS, data = oles_pitching)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.33082 -0.11080 -0.09641  0.10087  0.64606 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  0.11080    0.11157   0.993   0.3420  
+CH.Strikes   0.24314    0.14231   1.709   0.1156  
+CH.Fouls    -0.61711    0.29753  -2.074   0.0623 .
+CH.SS       -0.05971    0.16957  -0.352   0.7314  
+CH.CS        0.32428    0.20973   1.546   0.1503  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2878 on 11 degrees of freedom
+  (3 observations deleted due to missingness)
+Multiple R-squared:  0.5135,    Adjusted R-squared:  0.3366 
+F-statistic: 2.902 on 4 and 11 DF,  p-value: 0.07271</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = K ~ X2K.Counts + X1st.Pitch.Strikes + Competitive.Pitch. + 
+    Strike. + X2.3.Strikes + BF + CS., family = poisson, data = oles_pitching)
+
+Coefficients:
+                    Estimate Std. Error z value Pr(&gt;|z|)  
+(Intercept)         0.543407   2.170707   0.250   0.8023  
+X2K.Counts          0.120762   0.059772   2.020   0.0433 *
+X1st.Pitch.Strikes  0.011357   0.061424   0.185   0.8533  
+Competitive.Pitch.  0.026101   0.026876   0.971   0.3315  
+Strike.            -2.566369   2.449163  -1.048   0.2947  
+X2.3.Strikes        0.005393   0.071699   0.075   0.9400  
+BF                 -0.040764   0.039752  -1.025   0.3052  
+CS.                -1.422384   3.129618  -0.454   0.6495  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 20.5103  on 18  degrees of freedom
+Residual deviance:  4.3215  on 11  degrees of freedom
+AIC: 88.84
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+</div>
+</section>
+<section id="ffdf" class="slide level2">
+<h2>ffdf</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="final_project_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="final_project_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="explanation" class="slide level2">
 <h2>Explanation</h2>
 <p>findings</p>
-</section>
-<section id="load-data" class="slide level2">
-<h2>##Load data</h2>
-<p>Load your personal data (make sure you update from P106 -&gt; your P#)</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
